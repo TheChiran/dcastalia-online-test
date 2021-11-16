@@ -6,8 +6,12 @@ import { COLORS } from "../../helpers/constants";
 export default function SearchInput() {
   const RounderSearchInput = styled(TextField)`
     background: #fff;
+    border-radius: 50px;
+    margin-bottom: 5px;
     fieldset {
       border-radius: 50px;
+      border: none;
+      box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.08);
     }
   `;
   const ColoredIcon = styled(SearchIcon)`

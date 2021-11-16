@@ -1,15 +1,14 @@
 import React from "react";
 import { Button, Card, CardContent, Divider } from "@mui/material";
-import { styled, css } from "@mui/system";
+import { styled } from "@mui/system";
 import MembershipBg from "./../../assets/membershipcardbg.png";
 import { COLORS } from "../../helpers/constants";
 import MemberBadgeIcon from "./../../assets/memberBadgeIcon.svg";
 import MembershipCardList from "./MembershipCardLists";
-const styleToCenterWithFlex = css`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
+import {
+  CommonCardStyle,
+  StyleToCenterWithFlex,
+} from "../../helpers/CommonStyles";
 const HeaderSection = styled("div")`
   background-image: url(${MembershipBg});
   background-position: center;
@@ -26,7 +25,7 @@ const Header = styled("h3")`
 const HexagonShapedDiv = styled("div")`
   margin: 25px 0;
   width: 100%;
-  ${styleToCenterWithFlex}
+  ${StyleToCenterWithFlex}
 `;
 const HexagonShape = styled("div")`
   position: relative;
@@ -56,7 +55,7 @@ const HexagonShape = styled("div")`
   }
 `;
 const ImageDiv = styled("div")`
-  ${styleToCenterWithFlex}
+  ${StyleToCenterWithFlex}
   img {
     width: 50px;
     height: 50px;
@@ -65,17 +64,17 @@ const ImageDiv = styled("div")`
 const Content = styled("h4")`
   font-weight: 450;
   color: ${COLORS.color3};
-  ${styleToCenterWithFlex}
+  ${StyleToCenterWithFlex}
 `;
 const Date = styled("p")`
   color: ${COLORS.color4};
-  ${styleToCenterWithFlex}
+  ${StyleToCenterWithFlex}
 `;
 const CustomizedDivider = styled(Divider)`
   margin: 25px 0px;
 `;
 const ViewPlansDiv = styled("div")`
-  ${styleToCenterWithFlex}
+  ${StyleToCenterWithFlex}
 `;
 const ViewPlansButton = styled(Button)`
   background: ${COLORS.color3};
@@ -89,9 +88,12 @@ const ListData = [
   { id: 3, value: "2000 Add to Favorites" },
   { id: 4, value: "2000 Gallery Photo Upload" },
 ];
+const CustomCard = styled(Card)`
+  ${CommonCardStyle}
+`;
 export default function MembershipCard() {
   return (
-    <Card>
+    <CustomCard>
       <CardContent>
         <HeaderSection>
           <Header>Current Membership</Header>
@@ -111,6 +113,6 @@ export default function MembershipCard() {
           <ViewPlansButton variant="contained">View Plans</ViewPlansButton>
         </ViewPlansDiv>
       </CardContent>
-    </Card>
+    </CustomCard>
   );
 }

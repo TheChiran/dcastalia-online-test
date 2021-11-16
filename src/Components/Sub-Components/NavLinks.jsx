@@ -1,43 +1,43 @@
 import React from "react";
 import { Button, Grid } from "@mui/material";
-import { Box } from "@mui/system";
+import { Box, styled } from "@mui/system";
 import { COLORS } from "../../helpers/constants";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 export default function NavLinks({ center = false }) {
   const justifyContentValue = center === true ? "center" : "flex-end";
-  const navbarStyles = {
-    width: "90%",
-  };
-  const buttonColor = {
-    color: COLORS.color1,
-  };
+  const NavbarGrid = styled(Grid)`
+    width: 90%;
+    margin: 0 auto;
+
+    .MuiBox-root:nth-of-type(1) .MuiButton-root {
+      color: ${COLORS.color3};
+    }
+  `;
+  const CustomButton = styled(Button)`
+    color: ${COLORS.color1};
+  `;
   return (
-    <Grid
-      style={navbarStyles}
-      container
-      spacing="1"
-      justifyContent={justifyContentValue}
-    >
+    <NavbarGrid container spacing="1" justifyContent={justifyContentValue}>
       <Box>
-        <Button style={buttonColor}>HOME</Button>
+        <CustomButton>HOME</CustomButton>
       </Box>
       <Box>
-        <Button style={buttonColor}>PREMIUM PLANS</Button>
+        <CustomButton>PREMIUM PLANS</CustomButton>
       </Box>
       <Box>
-        <Button style={buttonColor}>SEARCH</Button>
+        <CustomButton>SEARCH</CustomButton>
       </Box>
       <Box>
-        <Button style={buttonColor}>ABOUT US</Button>
+        <CustomButton>ABOUT US</CustomButton>
       </Box>
       <Box>
-        <Button style={buttonColor}>
+        <CustomButton>
           HELP CENTER <KeyboardArrowDownIcon />
-        </Button>
+        </CustomButton>
       </Box>
       <Box>
-        <Button style={buttonColor}>CONTACT US</Button>
+        <CustomButton>CONTACT US</CustomButton>
       </Box>
-    </Grid>
+    </NavbarGrid>
   );
 }

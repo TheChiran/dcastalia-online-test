@@ -21,13 +21,14 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import { styled } from "@mui/system";
 import { COLORS } from "../../helpers/constants";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
+import { CommonCardStyle } from "../../helpers/CommonStyles";
 export default function MemberInfoCard() {
-  const memberAvatarSectionStyle = {
-    backgroundImage: `url(${membershipBG})`,
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-  };
+  const HeadGrid = styled(Grid)`
+  backgroundImage: url(${membershipBG}),
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "cover",
+  `;
   const UserAvatar = styled(Avatar)`
     width: 120px;
     height: 120px;
@@ -44,9 +45,22 @@ export default function MemberInfoCard() {
   `;
   const LinkList = styled(List)`
     color: ${COLORS.color1};
-    &:nth-of-type(1) {
+    li:nth-of-type(1) {
       color: ${COLORS.color3};
     }
+    li:nth-of-type(1) .css-cveggr-MuiListItemIcon-root {
+      color: ${COLORS.color3};
+    }
+    li .css-cveggr-MuiListItemIcon-root {
+      color: ${COLORS.color1};
+    }
+  `;
+  const CustomCard = styled(Card)`
+    ${CommonCardStyle}
+  `;
+  const CustomDivider = styled(Divider)`
+    width: 80%;
+    margin: 0 auto;
   `;
   const data = [
     { id: 1, icon: <DashboardIcon />, text: "Dashboard" },
@@ -56,7 +70,7 @@ export default function MemberInfoCard() {
     { id: 5, icon: <SettingsIcon />, text: "Account Settings" },
   ];
   return (
-    <Card>
+    <CustomCard>
       <CardContent>
         <Grid
           style={{ margin: "0", padding: "0", paddingBottom: "25px" }}
@@ -64,13 +78,8 @@ export default function MemberInfoCard() {
           direction="column"
           spacing="2"
         >
-          <Grid item lg={12} md={12}>
-            <Grid
-              style={memberAvatarSectionStyle}
-              container
-              direction="column"
-              alignItems="center"
-            >
+          <HeadGrid item lg={12} md={12} xs={12} sm={12}>
+            <Grid container direction="column" alignItems="center">
               <Grid item lg={12} md={12}>
                 <UserAvatar src={userAvatar} alt="User Image" />
               </Grid>
@@ -81,8 +90,8 @@ export default function MemberInfoCard() {
                 </UserMembershipType>
               </Grid>
             </Grid>
-          </Grid>
-          <Divider style={{ width: "80%", margin: "0 auto" }} />
+          </HeadGrid>
+          <CustomDivider />
           <Grid container direction="column" alignItems="flex-start">
             <Grid item lg={12} md={12}>
               <LinkList>
@@ -101,6 +110,6 @@ export default function MemberInfoCard() {
           </Grid>
         </Grid>
       </CardContent>
-    </Card>
+    </CustomCard>
   );
 }

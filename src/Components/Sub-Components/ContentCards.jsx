@@ -27,7 +27,7 @@ export default function ContentCards({ data }) {
     <Grid container direction="row" spacing="3">
       {data.map((content) => {
         return (
-          <Grid item lg={4} md={4}>
+          <Grid item lg={4} md={4} xs={12}>
             <Card style={cardStyle}>
               <CustomizedCardContent
                 style={{

@@ -38,18 +38,21 @@ export default function Contents() {
     margin: 0 auto;
     padding: 25px 0;
   `;
+  const ContentCardGrid = styled(Grid)`
+    margin-bottom: 15px;
+  `;
   return (
     <ContentsGrid container direction="row" spacing="2">
-      <Grid item lg={3} md={3}>
+      <Grid item lg={3} md={3} sm={12} xs={12}>
         <Grid container>
-          <Grid item lg={12} md={12}>
+          <Grid item lg={12} md={12} sm={12} xs={12}>
             <MemberInfoCard />
           </Grid>
         </Grid>
         <br />
         <br />
         <Grid container>
-          <Grid item lg={12} md={12}>
+          <Grid item lg={12} md={12} sm={12} xs={12}>
             <SearchInput />
           </Grid>
         </Grid>
@@ -57,16 +60,16 @@ export default function Contents() {
       <Grid item lg={1} md={1} />
       <Grid item lg={8} md={8}>
         <Grid container direction="column" spacing="2">
-          <Grid item lg={12} md={12}>
+          <ContentCardGrid item lg={12} md={12}>
             <ContentCards data={cardData} />
-          </Grid>
+          </ContentCardGrid>
           <Grid item lg={12} md={12}>
             <Grid container direction="row" spacing="2">
-              <Grid item lg={6} md={6}>
+              <Grid item lg={6} md={6} xs={12} sm={12}>
                 <MembershipCard />
               </Grid>
               <Grid item lg={1} md={1} />
-              <Grid item lg={5} md={5}>
+              <Grid item lg={5} md={5} xs={12} sm={12}>
                 <FeaturedProfiles />
               </Grid>
             </Grid>

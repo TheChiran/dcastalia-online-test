@@ -9,13 +9,14 @@ import Chip from "@mui/material/Chip";
 import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
 import MailOutlineOutlinedIcon from "@mui/icons-material/MailOutlineOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
+import { CommonCardStyle } from "../../helpers/CommonStyles";
 export default function FeaturedProfiles() {
   const Header = styled("h2")`
     color: ${COLORS.color1};
     font-weight: 450;
   `;
   const CustomCard = styled(Card)`
-    border-radius: 12px;
+    ${CommonCardStyle}
     &:not(:first-child) {
       margin-top: 25px;
     }
