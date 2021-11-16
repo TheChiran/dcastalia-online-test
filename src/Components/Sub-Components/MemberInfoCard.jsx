@@ -14,11 +14,13 @@ import React from "react";
 import userAvatar from "./../../assets/user.png";
 import crownIcon from "./../../assets/crown.svg";
 import membershipBG from "./../../assets/membership-bg.png";
-import DraftsIcon from "@mui/icons-material/Drafts";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import PersonIcon from "@mui/icons-material/Person";
 import EmailIcon from "@mui/icons-material/Email";
 import SettingsIcon from "@mui/icons-material/Settings";
+import { styled } from "@mui/system";
+import { COLORS } from "../../helpers/constants";
+import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 export default function MemberInfoCard() {
   const memberAvatarSectionStyle = {
     backgroundImage: `url(${membershipBG})`,
@@ -26,6 +28,33 @@ export default function MemberInfoCard() {
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
   };
+  const UserAvatar = styled(Avatar)`
+    width: 120px;
+    height: 120px;
+    border: 1px solid ${COLORS.color3};
+    padding: 0;
+  `;
+  const UserName = styled("h2")`
+    text-align: center;
+    color: ${COLORS.color1};
+  `;
+  const UserMembershipType = styled("p")`
+    color: ${COLORS.color3};
+    text-align: center;
+  `;
+  const LinkList = styled(List)`
+    color: ${COLORS.color1};
+    &:nth-of-type(1) {
+      color: ${COLORS.color3};
+    }
+  `;
+  const data = [
+    { id: 1, icon: <DashboardIcon />, text: "Dashboard" },
+    { id: 2, icon: <PersonIcon />, text: "My Profile" },
+    { id: 3, icon: <EmailIcon />, text: "Messages" },
+    { id: 4, icon: <FavoriteBorderOutlinedIcon />, text: "My Matches" },
+    { id: 5, icon: <SettingsIcon />, text: "Account Settings" },
+  ];
   return (
     <Card>
       <CardContent>
@@ -43,65 +72,31 @@ export default function MemberInfoCard() {
               alignItems="center"
             >
               <Grid item lg={12} md={12}>
-                <Avatar
-                  src={userAvatar}
-                  alt="User Image"
-                  style={{ width: "120px", height: "120px" }}
-                />
+                <UserAvatar src={userAvatar} alt="User Image" />
               </Grid>
               <Grid item lg={12} md={12}>
-                <h2>John Doe</h2>
-                <p>
+                <UserName>John Doe</UserName>
+                <UserMembershipType>
                   <img src={crownIcon} alt="Crown Icon" /> Premium Member
-                </p>
+                </UserMembershipType>
               </Grid>
             </Grid>
           </Grid>
           <Divider style={{ width: "80%", margin: "0 auto" }} />
           <Grid container direction="column" alignItems="flex-start">
             <Grid item lg={12} md={12}>
-              <List>
-                <ListItem>
-                  <ListItemButton>
-                    <ListItemIcon>
-                      <DashboardIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Dashboard" />
-                  </ListItemButton>
-                </ListItem>
-                <ListItem>
-                  <ListItemButton>
-                    <ListItemIcon>
-                      <PersonIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="My Profile" />
-                  </ListItemButton>
-                </ListItem>
-                <ListItem>
-                  <ListItemButton>
-                    <ListItemIcon>
-                      <EmailIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Messages" />
-                  </ListItemButton>
-                </ListItem>
-                <ListItem>
-                  <ListItemButton>
-                    <ListItemIcon>
-                      <SettingsIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="My Matches" />
-                  </ListItemButton>
-                </ListItem>
-                <ListItem>
-                  <ListItemButton>
-                    <ListItemIcon>
-                      <DraftsIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Account Settings" />
-                  </ListItemButton>
-                </ListItem>
-              </List>
+              <LinkList>
+                {data.map((content) => {
+                  return (
+                    <ListItem key={content.id}>
+                      <ListItemButton>
+                        <ListItemIcon>{content.icon}</ListItemIcon>
+                        <ListItemText primary={content.text} />
+                      </ListItemButton>
+                    </ListItem>
+                  );
+                })}
+              </LinkList>
             </Grid>
           </Grid>
         </Grid>

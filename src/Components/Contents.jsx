@@ -11,6 +11,7 @@ import card3icon from "./../assets/Card3icon.svg";
 import card3bg from "./../assets/card3bg.png";
 import MembershipCard from "./Sub-Components/MembershipCard";
 import FeaturedProfiles from "./Sub-Components/FeaturedProfiles";
+import { styled } from "@mui/system";
 const cardData = [
   {
     iconUrl: card1icon,
@@ -32,8 +33,13 @@ const cardData = [
   },
 ];
 export default function Contents() {
+  const ContentsGrid = styled(Grid)`
+    width: 80%;
+    margin: 0 auto;
+    padding: 25px 0;
+  `;
   return (
-    <Grid container direction="row" spacing="2">
+    <ContentsGrid container direction="row" spacing="2">
       <Grid item lg={3} md={3}>
         <Grid container>
           <Grid item lg={12} md={12}>
@@ -67,6 +73,6 @@ export default function Contents() {
           </Grid>
         </Grid>
       </Grid>
-    </Grid>
+    </ContentsGrid>
   );
 }

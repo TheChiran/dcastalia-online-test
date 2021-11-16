@@ -3,11 +3,11 @@ import { styled } from "@mui/system";
 import React from "react";
 import Header from "../Components/Header";
 import Contents from "../Components/Contents";
+import { COLORS } from "../helpers/constants";
 
 export default function DashboardLayout() {
   const ContentsDiv = styled("div")`
-    width: 80%;
-    margin: 0 auto;
+    background: ${COLORS.color7};
   `;
   return (
     <Grid container direction="column" spacing="1">

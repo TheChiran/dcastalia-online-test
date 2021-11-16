@@ -5,6 +5,7 @@ import { styled } from "@mui/system";
 import { COLORS } from "../../helpers/constants";
 export default function SearchInput() {
   const RounderSearchInput = styled(TextField)`
+    background: #fff;
     fieldset {
       border-radius: 50px;
     }
