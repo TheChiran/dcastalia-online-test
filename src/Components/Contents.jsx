@@ -9,6 +9,8 @@ import card2icon from "./../assets/card2Icon.svg";
 import card2bg from "./../assets/card2bg.png";
 import card3icon from "./../assets/Card3icon.svg";
 import card3bg from "./../assets/card3bg.png";
+import MembershipCard from "./Sub-Components/MembershipCard";
+import FeaturedProfiles from "./Sub-Components/FeaturedProfiles";
 const cardData = [
   {
     iconUrl: card1icon,
@@ -54,11 +56,12 @@ export default function Contents() {
           </Grid>
           <Grid item lg={12} md={12}>
             <Grid container direction="row" spacing="2">
-              <Grid item lg={8} md={8}>
-                {/* membership */}
+              <Grid item lg={6} md={6}>
+                <MembershipCard />
               </Grid>
-              <Grid item lg={4} md={4}>
-                {/* featured profiles */}
+              <Grid item lg={1} md={1} />
+              <Grid item lg={5} md={5}>
+                <FeaturedProfiles />
               </Grid>
             </Grid>
           </Grid>

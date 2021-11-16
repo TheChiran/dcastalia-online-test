@@ -7,6 +7,7 @@ const COLORS = {
   color6: "#D4D4D4",
   color7: "#F5F5F5",
   color8: "#626262",
+  color9: "#E9E9E9",
 };
 
 export { COLORS };
