@@ -50,7 +50,6 @@ export default function Contents() {
           </Grid>
         </Grid>
         <br />
-        <br />
         <Grid container>
           <Grid item lg={12} md={12} sm={12} xs={12}>
             <SearchInput />

@@ -17,8 +17,14 @@ export default function Footer() {
   `;
   const Navigation = styled("div")`
     margin: 45px 0 0 0;
+    @media only screen and (max-width: 768px) {
+      display: none;
+    }
   `;
   const CustomDiv = styled(Grid)`
+    margin: 25px 0;
+  `;
+  const CustomDivider = styled(Divider)`
     margin: 25px 0;
   `;
   return (
@@ -32,7 +38,7 @@ export default function Footer() {
         <Navigation item lg={12} md={12}>
           <NavLinks center />
         </Navigation>
-        <Divider />
+        <CustomDivider />
         <CustomDiv item lg={12} md={12}>
           <SocialMedia />
         </CustomDiv>

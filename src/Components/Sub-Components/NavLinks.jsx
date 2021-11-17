@@ -3,12 +3,14 @@ import { Button, Grid } from "@mui/material";
 import { Box, styled } from "@mui/system";
 import { COLORS } from "../../helpers/constants";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-export default function NavLinks({ center = false }) {
+export default function NavLinks({ center = false, row = true }) {
   const justifyContentValue = center === true ? "center" : "flex-end";
+  const flexDirectionValue = row === true ? "row" : "column";
   const NavbarGrid = styled(Grid)`
     width: 90%;
     margin: 0 auto;
-
+    flex-direction: ${flexDirectionValue};
+    text-align: left;
     .MuiBox-root:nth-of-type(1) .MuiButton-root {
       color: ${COLORS.color3};
     }

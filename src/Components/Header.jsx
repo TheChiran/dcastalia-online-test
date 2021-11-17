@@ -14,6 +14,9 @@ export default function Header() {
   `;
   const CustomNavLinks = styled(Grid)`
     ${StyleToCenterWithFlex}
+    @media only screen and (max-width: 768px) {
+      display: none;
+    }
   `;
   return (
     <CustomGrid container direction="column">
